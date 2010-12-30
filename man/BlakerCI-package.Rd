@@ -13,8 +13,8 @@ confidence limits.
 \tabular{ll}{
 Package: \tab BlakerCI\cr
 Type: \tab Package\cr
-Version: \tab 1.0-1\cr
-Date: \tab 2010-11-26\cr
+Version: \tab 1.0-2\cr
+Date: \tab 2010-12-30\cr
 License: \tab GPL-2\cr
 LazyLoad: \tab yes\cr
 }
@@ -25,6 +25,10 @@ Jan Klaschka \email{klaschka@cs.cas.cz}
 
 Maintainer: Jan Klaschka \email{klaschka@cs.cas.cz}
 }
+
+
+
+
 
 \references{
 Blaker, H. (2000) Confidence curves and improved exact confidence 
@@ -41,8 +45,19 @@ Fay, M.P. (2010a). Two-sided Exact Tests and Matching Confidence
    R Journal 2(1): 53-58.
 
 Klaschka, J. (2010). On calculation of Blaker's binomial 
-   confidence limits. COMPSTAT presentation (extended version).\cr
-   \url{www.cs.cas.cz/~klaschka/c10/417_ext.pdf}
+   confidence limits. COMPSTAT presentation.\cr
+   \url{http://www-roc.inria.fr/axis/COMPSTAT2010/slides/slides_417_SP8.pdf}
+   \cr
+   Extended version: \url{www.cs.cas.cz/~klaschka/c10/417_ext.pdf}
+}
+
+
+\section{Acknowledgement}{
+I am grateful to Petr Savicky for a valuable e-mail
+discussion of January 2010.
+
+This work was supported by grant 205/09/1079 from 
+The Czech Science Foundation.
 }
 
 \keyword{package}

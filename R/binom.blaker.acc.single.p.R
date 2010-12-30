@@ -5,7 +5,7 @@ binom.blaker.acc.single.p <- function(x,n,p,type="orig",acc.tol=1e-10,output="ac
     x <- n - x
     p <- 1 - p
   }
-# "Ordinary" acceptance at p.
+# "Ordinary" acceptability at p.
   p1.p <- 1 - pbinom(x-1,n,p)
   q1.p <- qbinom(p1.p,n,p)-1
   a1.p <- min(p1.p + pbinom(q1.p,n,p),1)
@@ -17,9 +17,9 @@ binom.blaker.acc.single.p <- function(x,n,p,type="orig",acc.tol=1e-10,output="ac
     a1.low <- 1
     q1.low <- -1
 #   Search for the first discontinuity point of the
-#   acceptance function to the left of p.
+#   acceptability function to the left of p.
 #   Continue as long as there is a chance to find there
-#   a higher acceptance value than at p.
+#   a higher acceptability value than at p.
     while (a1.low > a1.p && a1.low - a1.upp >= acc.tol) {
       mid <- (lower+upper)/2
       p1.mid <- 1 - pbinom(x-1,n,mid)

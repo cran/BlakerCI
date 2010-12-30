@@ -17,8 +17,8 @@ binom.blaker.lower.limit <- function(x,n,level,tol=1e-10) {
       p1 <- 1 - pbinom(x-1,n,mid)
       q1 <- qbinom(p1,n,mid)-1
 #   Blaker's limit is below the midpoint if either
-#   (i)  acceptance at mid >= alpha, or
-#   (ii) acceptance function has a discontinuity between
+#   (i)  acceptability at mid >= alpha, or
+#   (ii) acceptability function has a discontinuity between
 #        the midpoint and CPL (test based on q1).
       if (q1 > q1.cp || p1 + pbinom(q1,n,mid) >= alpha) {
         upper <- mid

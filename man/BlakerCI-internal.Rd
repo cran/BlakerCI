@@ -8,13 +8,14 @@ Internal functions, not expected to be called by the user.
 }
 \description{
 Calculation of the lower Blaker's confidence limit 
-(\code{\link{binom.blaker.lower.limit}}) 
-and a single acceptance value -- unmodified or \sQuote{unimodalized}
-(\code{\link{binom.blaker.acc.single.p}}).
+(\code{binom.blaker.lower.limit}) 
+and a single acceptability value -- unmodified or \sQuote{unimodalized}
+(\code{binom.blaker.acc.single.p}).
 }
 \usage{
 binom.blaker.lower.limit(x, n, level, tol = 1e-10)
-binom.blaker.acc.single.p(x, n, p, type = "orig", acc.tol = 1e-10, output = "acc")
+binom.blaker.acc.single.p(x, n, p, type = "orig", acc.tol = 1e-10,
+      output = "acc")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -31,20 +32,20 @@ binom.blaker.acc.single.p(x, n, p, type = "orig", acc.tol = 1e-10, output = "acc
       numerical tolerance (for the confidence limit).
 }
   \item{p}{
-      point (single value between 0 and 1) where to calculate the acceptance.
+      point (single value between 0 and 1) where to calculate the acceptability.
 }
   \item{type}{
-      "orig", or "unimod" -- either unmodified, or unimodalized acceptance
+      "orig", or "unimod" -- either unmodified, or unimodalized acceptability \cr
       (see \code{\link{binom.blaker.acc}}).      
 }
   \item{acc.tol}{
-      numerical tolerance (for the acceptance values when \code{type = "unimod"}). 
+      numerical tolerance (for the acceptability values when \code{type = "unimod"}). 
 }
   \item{output}{
-      the acceptance value output (\code{output = "acc"}, the default)
+      the acceptability value output (\code{output = "acc"}, the default)
       or, instead, an auxiliary integer-valued parameter \code{q1}, used
       for testing whether points belong to the same continuous segment 
-      of the acceptance function
+      of the acceptability function
       (\code{output = "q1"}), or both (\code{output = "both"}).
 }
 
@@ -53,10 +54,10 @@ binom.blaker.acc.single.p(x, n, p, type = "orig", acc.tol = 1e-10, output = "acc
 %%  ~~ If necessary, more details than the description above ~~
 %}
 \value{
-For \code{\link{binom.blaker.lower.limit}}, a single number -- 
+For \code{binom.blaker.lower.limit}, a single number -- 
 the lower confidence limit. \cr
-For \code{\link{binom.blaker.acc.single.p}} -- depending on the
-\code{output} parameter -- a single acceptance value, or a single
+For \code{binom.blaker.acc.single.p} -- depending on the
+\code{output} parameter -- a single acceptability value, or a single
 auxiliary integer, or both.
 }
 %\references{
