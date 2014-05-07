@@ -1,15 +1,19 @@
-binom.blaker.acc <- function(x,n,p,type=c("orig","unimod"),acc.tol=1e-10) {
+binom.blaker.acc <- function(x,n,p,type=c("orig","unimod"),acc.tol=1e-10,...) {
+  if (n < 1 || x < 0 || x > n) stop("Parameters n = ",n,", x = ",x, " wrong!")
+  if (acc.tol <= 0) stop("Numerical tolerance ",acc.tol," nonpositive!")
   type <- match.arg(type)
+  if (type != "orig" && type != "unimod") stop("Unknown type ",type,"!")
   m <- length(p)
+  if (m < 1) stop("Empty vector p!")
   if (m < 2) {
-    acc <- binom.blaker.acc.single.p(x,n,p,type=type,acc.tol=acc.tol)
+    acc <- binom.blaker.acc.single.p(x,n,p,type=type,acc.tol=acc.tol,...)
     return(acc)
   }
   else {
     if (max(p[2:m]-p[1:(m-1)]) <= 0) stop("Vector p not increasing!")
 #   First, regardless of type ("orig"/"unimod"),
 #   calculate "ordinary" acceptabilities.
-    aq <- sapply(p,binom.blaker.acc.single.p,x=x,n=n,acc.tol=acc.tol,output="both")
+    aq <- sapply(p,binom.blaker.acc.single.p,x=x,n=n,acc.tol=acc.tol,output="both",...=...)
     acc <- aq[1,]
     if (type == "orig") {
       return(acc)
@@ -26,8 +30,8 @@ binom.blaker.acc <- function(x,n,p,type=c("orig","unimod"),acc.tol=1e-10) {
 #     Calculate the "unimodalized" version of the acceptability function
 #     just at the "highlighted" points, and leave the rest
 #     to cummax().
-#     (The ammount of slow iterative calculations is thus minimized.)
-      acc[ind] <- sapply(p[ind],binom.blaker.acc.single.p,x=x,n=n,type=type,acc.tol=acc.tol)
+#     (The amount of slow iterative calculations is thus minimized.)
+      acc[ind] <- sapply(p[ind],binom.blaker.acc.single.p,x=x,n=n,type=type,acc.tol=acc.tol,...=...)
       m1 <- length(which(ind1))
       if (m1 > 1) {
         acc[1:m1] <- cummax(acc[1:m1])

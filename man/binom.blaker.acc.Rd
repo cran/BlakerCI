@@ -17,7 +17,7 @@ greater or equal unimodal function.
 }
 \usage{
 binom.blaker.acc(x, n, p, type = c("orig", "unimod"),
-      acc.tol = 1e-10)
+      acc.tol = 1e-10, \dots)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -35,12 +35,16 @@ binom.blaker.acc(x, n, p, type = c("orig", "unimod"),
   \item{type}{
      for \code{type = "orig"}, original acceptability function
      calculated.
-     For \code{type = "unimod"}, smallest unimodal function
+     For \code{type } \code{=}  \code{"unimod"}, smallest unimodal function
      greater or equal to the acceptability function calculated
      instead. 
 }
   \item{acc.tol}{
      numerical tolerance (relevant only for \code{type = "unimod"}).
+}
+  \item{\dots}{
+     additional arguments to be passed to \code{binom.blaker.acc.single.p};
+     in fact, just \code{maxiter} (see \code{BlakerCI-internal}). 
 }
 }
 
@@ -53,7 +57,7 @@ Single values of the \sQuote{unimodalized} acceptability function
 (for \code{type = "unimod"}) are computed by an iterative
 numerical algorithm implemented in internal function
 \cr
-\code{\link{binom.blaker.acc.single.p}}.
+\code{binom.blaker.acc.single.p}.
 The function cited is called just once in each of the intervals
 where the acceptability function is continuous
 (namely in the leftmost one of those points of \code{p} 
@@ -62,7 +66,7 @@ below \code{x/n}, and the rightmost one when above
 \code{x/n}). The rest is done by function
 \code{cummax}.  
 This is considerably faster than calling 
-\code{\link{binom.blaker.acc.single.p}}
+\code{binom.blaker.acc.single.p}
 for every point of \code{p}.
 Note that applying \code{cummax} directly to
 a vector of unmodified acceptability values
@@ -81,26 +85,27 @@ Blaker, H. (2000) Confidence curves and improved exact confidence
    Canadian Journal of Statistics 28: 783-798.\cr
    (Corrigenda: Canadian Journal of Statistics 29: 681.)
 
-Fay, M. P. (2010). Confidence intervals that Match Fisher's exact 
-   and Blaker's exact tests.
-   Biostatistics. 11:373-374.
+%Fay, M. P. (2010). Confidence intervals that Match Fisher's exact 
+%   and Blaker's exact tests.
+%   Biostatistics. 11:373-374.
 
-Fay, M.P. (2010a). Two-sided Exact Tests and Matching Confidence 
+%Fay, M.P. (2010a). Two-sided Exact Tests and Matching Confidence 
+Fay, M.P. (2010). Two-sided Exact Tests and Matching Confidence 
    Intervals for Discrete Data. 
    R Journal 2(1): 53-58.
 
-Klaschka, J. (2010). On calculation of Blaker's binomial 
-   confidence limits. COMPSTAT presentation.\cr
-   \url{http://www-roc.inria.fr/axis/COMPSTAT2010/slides/slides_417_SP8.pdf}
-   \cr
-   Extended version: \url{www.cs.cas.cz/~klaschka/c10/417_ext.pdf}
+%Klaschka, J. (2010). On calculation of Blaker's binomial 
+%   confidence limits. COMPSTAT presentation.\cr
+%   \url{http://www-roc.inria.fr/axis/COMPSTAT2010/slides/slides_417_SP8.pdf}
+%   \cr
+%   Extended version: \url{www.cs.cas.cz/~klaschka/c10/417_ext.pdf}
 }
 \author{
 Jan Klaschka \email{klaschka@cs.cas.cz}
 }
 \note{
 %%  ~~further notes~~
-Inspired by M.P. Fay (2010a), mentioning
+Inspired by M.P. Fay (2010), mentioning
 \sQuote{unavoidable inconsistencies} between tests with non-unimodal
 acceptability functions and confidence intervals derived from them.
 When the acceptability functions are unimodalized

@@ -1,3 +1,14 @@
+2014-05-07  1.0-4  Algorithms improved:
+                   - An incorrect (and, fortunately, almost never used) branch
+                     removed from binom.blaker.lower.limit.R.
+                   - Maximum number of interval halving steps newly controlled
+                     by a parameter. (Infinite loops resulting from too small
+                     numerical tolerance parameter values thus avoided.)
+                   - Input parameter checks added.
+                   - Unnecessary calculations of binomial quantiles eliminated.  
+
+(           1.0-3  Not posted.)
+
 2010-12-30  1.0-2  Documentation update.
 
 2010-11-27  1.0-1  Initial submission to CRAN.

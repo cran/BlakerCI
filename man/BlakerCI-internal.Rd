@@ -13,9 +13,9 @@ and a single acceptability value -- unmodified or \sQuote{unimodalized}
 (\code{binom.blaker.acc.single.p}).
 }
 \usage{
-binom.blaker.lower.limit(x, n, level, tol = 1e-10)
+binom.blaker.lower.limit(x, n, level, tol = 1e-10, maxiter=100)
 binom.blaker.acc.single.p(x, n, p, type = "orig", acc.tol = 1e-10,
-      output = "acc")
+      output = "acc", maxiter=100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -47,6 +47,16 @@ binom.blaker.acc.single.p(x, n, p, type = "orig", acc.tol = 1e-10,
       for testing whether points belong to the same continuous segment 
       of the acceptability function
       (\code{output = "q1"}), or both (\code{output = "both"}).
+}
+  \item{maxiter}{
+      Maximum number of interval halving iterations during the search
+      for a confidence limit (\code{binom.blaker.lower.limit}) or
+      a discontinuity point of the acceptability function 
+      (\code{binom.blaker.acc.single.p} with \code{type} \code{=} \code{"unimod"}). 
+      When the required accuracy is not reached in \code{maxiter} steps -- 
+      typically when too small \code{tol} or \code{acc.tol}
+      exceeds capabilities of machine arithmetic -- last step's result
+      is returned with warning.
 }
 
 }

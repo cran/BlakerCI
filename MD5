@@ -1,0 +1,11 @@
+eeeb878922147817fc8fd6028f2cf6f9 *ChangeLog
+a73e4e800296623ff377abfd0438bcba *DESCRIPTION
+76b309ced09fde087399bf426fe6bbaa *NAMESPACE
+38f9b537d00dba55ae6a2717721bdbdd *R/binom.blaker.acc.R
+e31a8b5ad8ee890e82fa31bc5777b9f4 *R/binom.blaker.acc.single.p.R
+cfa0c40d1cbd95045c3400212df7a4d6 *R/binom.blaker.limits.R
+83a0de528aa33eb2acae2965b561638b *R/binom.blaker.lower.limit.R
+afd954c6de1e31cad77d458048675f81 *man/BlakerCI-internal.Rd
+f9d6fb28066f558da9f6a32c779c3e29 *man/BlakerCI-package.Rd
+ed48c280ca2556fcbb9e607e263c0985 *man/binom.blaker.acc.Rd
+db02a5c5631ff08520055cf56e1dfd95 *man/binom.blaker.limits.Rd
