@@ -12,12 +12,12 @@ Calculates values of the acceptability function for the binomial
 distribution (see function \code{acceptbin} in Blaker (2000))
 in a sequence of points (for, e.g., plotting purposes).
 The acceptability function may optionally be 
-\sQuote{unimodalized}, i.e. replaced with the smallest
+\dQuote{unimodalized}, i.e. replaced with the smallest
 greater or equal unimodal function. 
 }
 \usage{
 binom.blaker.acc(x, n, p, type = c("orig", "unimod"),
-      acc.tol = 1e-10, \dots)
+      acc.tol = 1e-10, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -34,17 +34,18 @@ binom.blaker.acc(x, n, p, type = c("orig", "unimod"),
 }
   \item{type}{
      for \code{type = "orig"}, original acceptability function
-     calculated.
-     For \code{type } \code{=}  \code{"unimod"}, smallest unimodal function
+     calculated.\cr
+     For \code{type = "unimod"}, smallest unimodal function
      greater or equal to the acceptability function calculated
      instead. 
 }
   \item{acc.tol}{
      numerical tolerance (relevant only for \code{type = "unimod"}).
 }
-  \item{\dots}{
-     additional arguments to be passed to \code{binom.blaker.acc.single.p};
-     in fact, just \code{maxiter} (see \code{BlakerCI-internal}). 
+  \item{...}{
+     additional arguments to be passed to 
+     \code{\link{binom.blaker.acc.single.p}};
+     in fact, just \code{maxiter} (see \code{\link{BlakerCI-internal}}). 
 }
 }
 
@@ -53,7 +54,7 @@ For \code{type = "orig"}, essentially the same is calculated
 as -- for single points -- by \code{acceptbin} function
 from Blaker (2000).
 
-Single values of the \sQuote{unimodalized} acceptability function 
+Single values of the \dQuote{unimodalized} acceptability function 
 (for \code{type = "unimod"}) are computed by an iterative
 numerical algorithm implemented in internal function
 \cr
@@ -106,7 +107,7 @@ Jan Klaschka \email{klaschka@cs.cas.cz}
 \note{
 %%  ~~further notes~~
 Inspired by M.P. Fay (2010), mentioning
-\sQuote{unavoidable inconsistencies} between tests with non-unimodal
+\dQuote{unavoidable inconsistencies} between tests with non-unimodal
 acceptability functions and confidence intervals derived from them.
 When the acceptability functions are unimodalized
 and the test modified accordingly (i.e. p-values slightly increased
@@ -131,7 +132,7 @@ legend(x=.7,y=.8,c("orig","unimod"),col=c("black","red"),lwd=1)
 ## There is, nevertheless, a difference.
 plot(p,acc1-acc,type="l")
 
-## Focussing the difference about p=0.4:
+## Focussing on the difference about p=0.4:
 p <- seq(.395,.405,length=1001)
 acc <- binom.blaker.acc(3,10,p)
 acc1 <- binom.blaker.acc(3,10,p,type="unimod")

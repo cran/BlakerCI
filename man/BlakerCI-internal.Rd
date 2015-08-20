@@ -2,18 +2,22 @@
 \alias{BlakerCI-internal}
 \alias{binom.blaker.lower.limit}
 \alias{binom.blaker.acc.single.p}
+\alias{binom.blaker.VHadj.lower.limit}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Internal functions, not expected to be called by the user.
 }
 \description{
-Calculation of the lower Blaker's confidence limit 
-(\code{binom.blaker.lower.limit}) 
-and a single acceptability value -- unmodified or \sQuote{unimodalized}
+Calculation of the lower Blaker's confidence limit
+as defined by Blaker (\code{binom.blaker.lower.limit}),
+or with so called Vos-Hudson adjustment (\code{binom.blaker.VHadj.lower.limit});
+a single acceptability value, optionally \dQuote{unimodalized}
 (\code{binom.blaker.acc.single.p}).
 }
 \usage{
 binom.blaker.lower.limit(x, n, level, tol = 1e-10, maxiter=100)
+binom.blaker.VHadj.lower.limit(x,n,level,tol=1e-10,maxiter=100,
+      nmax=n+1000,int.eps=1e-10)
 binom.blaker.acc.single.p(x, n, p, type = "orig", acc.tol = 1e-10,
       output = "acc", maxiter=100)
 }
@@ -35,7 +39,8 @@ binom.blaker.acc.single.p(x, n, p, type = "orig", acc.tol = 1e-10,
       point (single value between 0 and 1) where to calculate the acceptability.
 }
   \item{type}{
-      "orig", or "unimod" -- either unmodified, or unimodalized acceptability \cr
+      \code{"orig"}, or \code{"unimod"} -- either unmodified, or unimodalized 
+      acceptability \cr
       (see \code{\link{binom.blaker.acc}}).      
 }
   \item{acc.tol}{
@@ -52,11 +57,26 @@ binom.blaker.acc.single.p(x, n, p, type = "orig", acc.tol = 1e-10,
       Maximum number of interval halving iterations during the search
       for a confidence limit (\code{binom.blaker.lower.limit}) or
       a discontinuity point of the acceptability function 
-      (\code{binom.blaker.acc.single.p} with \code{type} \code{=} \code{"unimod"}). 
+      (\code{binom.blaker.acc.single.p} with \code{type = "unimod"}). 
       When the required accuracy is not reached in \code{maxiter} steps -- 
       typically when too small \code{tol} or \code{acc.tol}
       exceeds capabilities of machine arithmetic -- last step's result
       is returned with warning.
+}
+
+  \item{nmax}{
+      Pairs \code{(y, m)} of number of trials and number of successes 
+      are allowed to contribute to the Vos-Hudson adjustment for only
+      \code{m} up to \code{nmax}. Warning is returned when greater
+      numbers of trials are suspect to have influence.
+}
+  \item{int.eps}{
+      Maximum expected error of machine representation of integers
+      calculated via multiplication and division from reals.
+      (Used in order to round numbers correctly if they happen
+      to be integer, e. g.
+      \code{ceiling(xx - int.eps)} is calculated instead of 
+      \code{ceiling(xx)}.)
 }
 
 }
@@ -64,7 +84,8 @@ binom.blaker.acc.single.p(x, n, p, type = "orig", acc.tol = 1e-10,
 %%  ~~ If necessary, more details than the description above ~~
 %}
 \value{
-For \code{binom.blaker.lower.limit}, a single number -- 
+For \code{binom.blaker.lower.limit} and
+\code{binom.blaker.VHadj.lower.limit}, a single number -- 
 the lower confidence limit. \cr
 For \code{binom.blaker.acc.single.p} -- depending on the
 \code{output} parameter -- a single acceptability value, or a single
@@ -83,7 +104,8 @@ Jan Klaschka \email{klaschka@cs.cas.cz}
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link{binom.blaker.limits}}, \code{\link{binom.blaker.acc}}.
+\code{\link{binom.blaker.limits}}, \code{\link{binom.blaker.VHadj.limits}},\cr
+\code{\link{binom.blaker.acc}}, \code{\link{binom.blaker.VHadj.acc}}.
 }
 %\examples{
 %}

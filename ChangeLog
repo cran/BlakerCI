@@ -1,3 +1,8 @@
+2015-08-20  1.0-5  - So called Vos-Hudson adjustment implemented.
+                   - DESCRIPTION corrected.
+                   - Imports from stats added to NAMESPACE.
+                   - Documentation edited.
+
 2014-05-07  1.0-4  Algorithms improved:
                    - An incorrect (and, fortunately, almost never used) branch
                      removed from binom.blaker.lower.limit.R.

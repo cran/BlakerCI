@@ -9,7 +9,7 @@
   Fast and accurate calculation of Blaker's binomial confidence limits.
 }
 \usage{
-binom.blaker.limits(x, n, level = 0.95, tol = 1e-10, \dots)
+binom.blaker.limits(x, n, level = 0.95, tol = 1e-10, ...)
 }
 
 \arguments{
@@ -25,7 +25,7 @@ binom.blaker.limits(x, n, level = 0.95, tol = 1e-10, \dots)
   \item{tol}{
    numerical tolerance.
 }
-  \item{\dots}{
+  \item{...}{
    additional arguments to be passed to \code{binom.blaker.lower.limit};
    in fact, just \code{maxiter} (see \code{\link{BlakerCI-internal}}). 
 }
@@ -43,14 +43,6 @@ binom.blaker.limits(x, n, level = 0.95, tol = 1e-10, \dots)
    Function \code{binom.blaker.limits} is, by contrast,
    immune from such failures and yields always as 
    its result the whole confidence interval (Klaschka (2010)).
-
-   Package \code{exactci} by M. P. Fay includes another algorithm
-   that calculates Blaker's binomial confidence limits
-   (see user-level function \code{binom.exact} and internal function 
-   \code{exactbinomCI}). 
-   It is more sophisticated than the original Blaker's one,
-   but considerably slower and sometimes less accurate 
-   than that of \code{binom.blaker.limits}.
 }
 
 \value{
@@ -74,8 +66,15 @@ Blaker, H. (2000) Confidence curves and improved exact confidence
 Klaschka, J. (2010). BlakerCI: An algorithm and R package
    for the Blaker's binomial confidence limits calculation.
    Technical report No. 1099, Institute of Computer Science,
-   Academy of Sciences of the Czech Republic.\cr
-\url{http://www.library.sk/i2/content.csg.cls?ictx=cav&repo=crepo1&key=99673653505}
+   Academy of Sciences of the Czech Republic,
+   \url{http://hdl.handle.net/11104/0195722}.
+%\url{http://www.library.sk/i2/content.csg.cls?ictx=cav&repo=crepo1&key=99673653505}
+
+Lecoutre, B. & Poitevineau J. (2014). New results for computing
+   Blaker's exact confidence interval limits for usual
+   one-parameter discrete distributions.
+   Communications in Statistics - Simulation and Computation, 
+   \url{http://dx.doi.org/10.1080/03610918.2014.911900}.
 }
 
 \author{
@@ -84,11 +83,25 @@ Jan Klaschka \email{klaschka@cs.cas.cz}
 
 \note{
 %%  ~~further notes~~
-Earlier 2010 algorithm versions were designed independently of 
-(though already existing) M.P. Fay's packages \code{exact2x2}
-and \code{exactci}.
-Some later modifications, however, have been inspired
-by Fay's programs. 
+   Package \code{exactci} by M. P. Fay includes another algorithm
+   that calculates Blaker's binomial confidence limits
+   (see user-level function \code{binom.exact} and internal function 
+   \code{exactbinomCI}). 
+   It is more sophisticated than the original Blaker's one,
+   but considerably slower and sometimes less accurate 
+   than that of \code{binom.blaker.limits}.
+
+   Earlier 2010 versions of the algorithm of \code{binom.blaker.limits} 
+   were designed independently of (though already existing) 
+   M.P. Fay's packages \code{exact2x2} and \code{exactci}.
+   Some later modifications, however, have been inspired
+   by Fay's programs. 
+
+   Lecoutre & Poitevineau (2014) designed another algorithm 
+   for the calculation of the Blaker's confidence limits.
+   Despite more abstract theoretical background and broader 
+   scope (not confined to the binomial distribution),
+   it is closely analogous to that of \code{binom.blaker.limits}.
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -98,8 +111,8 @@ by Fay's programs.
 \tabular{ll}{
 \code{exactci:exactbinomci} \tab
       One of the options yields Blaker's
-      limits. The algorithm is more \cr \tab
-      sophisticated than
+      limits. The algorithm is more 
+      sophisti- \cr \tab cated than
       the original Blaker's one. \cr
 %\code{propCIs:blakerci, binGroup:binBlaker}
 \code{propCIs:blakerci} \tab

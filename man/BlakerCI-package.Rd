@@ -13,9 +13,9 @@ confidence limits.
 \tabular{ll}{
 Package: \tab BlakerCI\cr
 Type: \tab Package\cr
-Version: \tab 1.0-4\cr
-Date: \tab 2014-05-07\cr
-License: \tab GPL-2\cr
+Version: \tab 1.0-5\cr
+Date: \tab 2015-08-20\cr
+License: \tab GPL-3\cr
 LazyLoad: \tab yes\cr
 }
 }
@@ -55,7 +55,7 @@ Maintainer: Jan Klaschka \email{klaschka@cs.cas.cz}
 \section{Acknowledgement}{
 This work was accomplished with institutional support RVO:67985807. 
 
-Previous versions were supported by grant 205/09/1079 from 
+Versions up to 1.0-2 were supported by grant 205/09/1079 from 
 The Czech Science Foundation.
 %
 %I am grateful to Petr Savicky for a valuable e-mail
