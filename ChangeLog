@@ -1,3 +1,7 @@
+2019-04-29  1.0-6  - Poisson distribution added.
+                   - A bug in unimodalization of binomial acceptability values
+                     (function binom.blaker.acc, option type="unimod") fixed.
+
 2015-08-20  1.0-5  - So called Vos-Hudson adjustment implemented.
                    - DESCRIPTION corrected.
                    - Imports from stats added to NAMESPACE.

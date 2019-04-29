@@ -29,7 +29,7 @@ binom.blaker.VHadj.acc(x, n, p, type = c("orig", "unimod"),
   \item{p}{
      vector (length 1 allowed) of hypothesized binomial parameters
      (between 0 and 1).
-     In case of more than one point, a growing sequence required. 
+     In case of more than one point, an increasing sequence required. 
 }
   \item{type}{
      for \code{type = "orig"}, Vos-Hudson adjustment applied to 

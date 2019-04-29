@@ -3,18 +3,19 @@
 \alias{BlakerCI}
 \docType{package}
 \title{
-Blaker's binomial confidence limits
+Blaker's binomial and Poisson confidence limits
 }
 \description{
 Fast and accurate calculation of Blaker's binomial
+and Poisson
 confidence limits.
 }
 \details{
 \tabular{ll}{
 Package: \tab BlakerCI\cr
 Type: \tab Package\cr
-Version: \tab 1.0-5\cr
-Date: \tab 2015-08-20\cr
+Version: \tab 1.0-6\cr
+Date: \tab 2019-04-29\cr
 License: \tab GPL-3\cr
 LazyLoad: \tab yes\cr
 }
@@ -54,6 +55,7 @@ Maintainer: Jan Klaschka \email{klaschka@cs.cas.cz}
 
 \section{Acknowledgement}{
 This work was accomplished with institutional support RVO:67985807. 
+The same was true for the previous version 1.0-5.
 
 Versions up to 1.0-2 were supported by grant 205/09/1079 from 
 The Czech Science Foundation.
@@ -72,4 +74,5 @@ The Czech Science Foundation.
 
 \examples{
 binom.blaker.limits(3,10) # [1] 0.08726443 0.61941066
+poisson.blaker.limits(3)  # [1] 0.8176914 8.5597971
 }

@@ -109,7 +109,7 @@ Jan Klaschka \email{klaschka@cs.cas.cz}
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 \tabular{ll}{
-\code{exactci:exactbinomci} \tab
+\code{exactci:binom.exact} \tab
       One of the options yields Blaker's
       limits. The algorithm is more 
       sophisti- \cr \tab cated than

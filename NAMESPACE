@@ -1,3 +1,5 @@
-importFrom("stats", "pbinom", "qbinom", "qbeta", "pbeta")
+importFrom("stats", "pbinom", "qbinom", "qbeta", "pbeta","ppois","qgamma","qpois")
 export(binom.blaker.lower.limit,binom.blaker.limits,binom.blaker.acc.single.p,binom.blaker.acc,
-       binom.blaker.VHadj.lower.limit,binom.blaker.VHadj.limits,binom.blaker.VHadj.acc)
+       binom.blaker.VHadj.lower.limit,binom.blaker.VHadj.limits,binom.blaker.VHadj.acc,
+       poisson.blaker.acc,poisson.blaker.acc.single.p,poisson.blaker.lower.limit,
+       poisson.blaker.upper.limit,poisson.blaker.limits)
